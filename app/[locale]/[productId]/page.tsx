@@ -8,7 +8,8 @@ interface PostPageProps {
 
 const PostPage: NextPage<PostPageProps> = async ({ params }) => {
   const { productId } = await  params;
-  console.log({productId, params})
+  
+  // Replace with your CMS fetching logic, e.g., fetch, axios, graphql, etc.
   const product = await fetch(`https://fakestoreapi.com/products/${productId}`);
   const productData: Product = await product.json();
 
