@@ -10,3 +10,10 @@ export type Product = {
     count: number;
   };
 };
+
+export type SearchRecord = {
+  id: number;
+  title: string;
+  description: string;
+  category: string;
+};

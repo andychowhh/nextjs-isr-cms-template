@@ -1,4 +1,5 @@
 import { Product } from "@/types";
+import ProductSearchDropdown from "@/components/ProductSearchDropdown";
 
 export const revalidate = 60
  
@@ -14,6 +15,8 @@ export default async function Home({ params }: { params: { locale: string } }) {
 
   return (
     <div style={{ marginTop: "2rem", padding: "2rem" }}>
+      <ProductSearchDropdown products={allProductsData} locale={locale} />
+      
       <table style={{ width: "100%", borderCollapse: "collapse" }}>
         <thead>
           <tr>
