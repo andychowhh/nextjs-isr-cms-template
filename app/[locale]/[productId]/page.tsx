@@ -2,11 +2,11 @@ import React from 'react'
 import { type NextPage } from "next";
 import { Product } from '@/types';
 
-interface PostPageProps {
+interface ProductPageProps {
   params: { productId: string };
 }
 
-const PostPage: NextPage<PostPageProps> = async ({ params }) => {
+const ProductPage: NextPage<ProductPageProps> = async ({ params }) => {
   const { productId } = await  params;
   
   // Replace with your CMS fetching logic, e.g., fetch, axios, graphql, etc.
@@ -28,4 +28,4 @@ const PostPage: NextPage<PostPageProps> = async ({ params }) => {
   );
 };
 
-export default PostPage;
+export default ProductPage;
