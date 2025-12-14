@@ -6,8 +6,18 @@ interface ProductPageProps {
   params: { productId: string };
 }
 
+export const revalidate = 60
+ 
+export async function generateStaticParams() {
+  const products = await fetch(`https://fakestoreapi.com/products`);
+  const productsData: Product[] = await products.json();
+  
+  // [ { productId: "1" }, { productId: "2" }, { productId: "3" } ]
+  return productsData.map(product => ({ productId: product.id.toString() }));
+}
+
 const ProductPage: NextPage<ProductPageProps> = async ({ params }) => {
-  const { productId } = await  params;
+  const { productId } = await params;
   
   // Replace with your CMS fetching logic, e.g., fetch, axios, graphql, etc.
   const product = await fetch(`https://fakestoreapi.com/products/${productId}`);
